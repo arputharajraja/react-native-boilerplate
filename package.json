@@ -1,0 +1,121 @@
+{
+  "name": "ReactNativeBoilerplate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android --variant=localrelease",
+    "android:staging": "react-native run-android --variant=stagingrelease",
+    "android:prod": "react-native run-android --variant=productionrelease",
+    "ios": "react-native run-ios --scheme 'ReactNativeBoilerplate.local'",
+    "ios:staging": "react-native run-ios --scheme 'ReactNativeBoilerplate.staging'",
+    "ios:prod": "react-native run-ios --scheme 'ReactNativeBoilerplate.production'",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .ts --ext .tsx",
+    "pretty": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+    "build:android": "react-native bundle --platform android  --variant=localrelease --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "build:android:staging": "react-native bundle --platform android  --variant=stagingrelease --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "build:android:prod": "react-native bundle --platform android  --variant=productionrelease --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/",
+      "./assets/images/"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --print-width 100 --single-quote",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.ts": [
+      "prettier --write --print-width 100 --single-quote",
+      "eslint . --ext .ts --fix",
+      "git add"
+    ],
+    "*.tsx": [
+      "prettier --write --print-width 100 --single-quote",
+      "eslint . --ext .tsx --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^12.0.4",
+    "@react-native-async-storage/async-storage": "^1.15.2",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/netinfo": "^6.0.0",
+    "@react-native-firebase/app": "^12.8.0",
+    "@react-native-firebase/messaging": "^12.8.0",
+    "@react-navigation/bottom-tabs": "^5.11.10",
+    "@react-navigation/drawer": "^5.12.5",
+    "@react-navigation/native": "^5.9.4",
+    "@react-navigation/stack": "^5.14.4",
+    "@sentry/react-native": "^2.4.0",
+    "axios": "^0.21.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "expo-font": "^9.2.1",
+    "expo-image-picker": "^10.2.3",
+    "formik": "^2.2.6",
+    "i18next": "^20.6.0",
+    "native-base": "^3.1.0",
+    "prettier": "^2.3.2",
+    "prop-types": "^15.7.2",
+    "react": "17.0.1",
+    "react-hook-form": "^7.1.1",
+    "react-native": "0.64.2",
+    "react-native-code-push": "^7.0.3",
+    "react-native-config": "^1.4.4",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-in-app-notification": "^3.1.0",
+    "react-native-keyboard-aware-scroll-view": "^0.9.3",
+    "react-native-permissions": "^3.0.5",
+    "react-native-reanimated": "^2.1.0",
+    "react-native-safe-area-context": "^3.3.0",
+    "react-native-screens": "^3.1.1",
+    "react-native-splash-screen": "^3.2.0",
+    "react-native-svg": "^12.1.1",
+    "react-native-svg-transformer": "^0.14.3",
+    "react-native-unimodules": "^0.13.3",
+    "react-native-vector-icons": "^8.1.0",
+    "react-query": "^3.13.10",
+    "styled-components": "^5.3.1",
+    "styled-system": "^5.1.5",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "@testing-library/react-native": "^5.0.3",
+    "@types/i18n-js": "^3.8.2",
+    "@types/jest": "^26.0.23",
+    "@types/react": "^17.0.11",
+    "@types/react-native": "^0.64.10",
+    "@types/react-test-renderer": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "axios-mock-adapter": "^1.17.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^26.3.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-preset-expo": "8.3.0",
+    "eslint": "^7.29.0",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-native": "^3.8.1",
+    "husky": "^1.1.2",
+    "jest-expo": "^40.0.0",
+    "lint-staged": "^7.3.0",
+    "typescript": "^4.3.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
